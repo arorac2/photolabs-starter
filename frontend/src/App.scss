@@ -13,6 +13,17 @@
   }
 }
 
+.dark-mode {
+  // Dark mode variables
+  --background-color: #111111;
+  --text-color: #ffffff;
+}
+
+.dark-mode .App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

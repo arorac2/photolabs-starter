@@ -14,3 +14,17 @@
     color: #111;
   }
 }
+
+.topic-list__button {
+  // Add styling for the button element
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.topic-list__button:hover {
+  // Add styling for the hover effect
+  background-color: lightgray;
+}

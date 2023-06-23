@@ -1,14 +1,30 @@
 import React from 'react';
-
+import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
-const PhotoList = () => {
-  <ul className="photo-list">
-    {/* Insert React */}
-  </ul>
+const PhotoList = ({ photos, favoritePhotos, handlePhotoClick, handleFavoriteClick }) => {
+  return (
+    <ul className="photo-list">
+    {photos.map((photo) => (
+      <PhotoListItem
+        key={photo.id}
+        id={photo.id}
+        location={photo.location}
+        imageSource={photo.urls.regular}
+        username={photo.user.username}
+        profile={photo.user.profile}
+        isFavorite={favoritePhotos.includes(photo.id)}
+        handleFavoriteClick={handleFavoriteClick}
+        handlePhotoClick={handlePhotoClick}
+        topic={photo.topic_id}
+        similar_photos={photo.similar_photos}
+      />
+    ))}
+  </ul>)
 }
 
 PhotoList.defaultProps = {
+  favoritePhotos: [],
   photos: [
     {
       "id": "1",
@@ -62,6 +78,7 @@ PhotoList.defaultProps = {
       }
     }
    ]
+   
 }
 
 export default PhotoList

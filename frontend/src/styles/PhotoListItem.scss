@@ -1,18 +1,84 @@
-.photo-list__item {
-  margin: 24px;
-  padding: 8px;
-  border-width: 0.5px;
-  border-color: lightgray;
-  border-style: solid;
-  border-radius: 8px;
-  max-width: fit-content;
+
+.photo-list-item .profile{
+  width: 70px; 
+  height: 60px; 
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 1em;
+
 }
+
+.photo-list-item {
+  display: inline-block;
+  width: 400px;
+  margin-right: 10px;
+  border: 2px solid lightgray;
+  padding:20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  
+  img {
+   
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+
+  .favorite-icon {
+    width: 20px;
+    height: 20px;;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+ 
+  }
+
+  .favorite-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    transition: background-color 0.3s red;
+  }
+
+  .favorite-icon.active::before {
+    background-color: red;
+    border-color: red;
+  }
+  
+  .favorite-icon:hover::before,
+  .favorite-icon:hover::after {
+    background-color: red;
+    border-color: red;
+  }
+  
+}
+
 
 .photo-list__image {
   user-select: none;
   width: 300px;
   height: 200px;
   object-fit: cover;
+  
 }
 
 .photo-list__image {
@@ -21,6 +87,7 @@
   width: 300px;
   height: 200px;
   object-fit: cover;
+  border: 1px solid #ccc;
 }
 
 .photo-list__user-profile {
@@ -46,3 +113,11 @@
 .photo-list__user-location {
   color: #838383;
 }
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+

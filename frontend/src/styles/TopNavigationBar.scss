@@ -1,3 +1,4 @@
+
 .top-nav-bar {
   display: flex;
   flex-direction: row;
@@ -17,4 +18,23 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+
+  .FavBadge{
+    margin-right: 1em;
+  }
+}
+
+
+.top-nav-bar__topic-list{
+  position: absolute;
+  top:0;
+  right:0;
+  margin-right: 10em;
+  margin-top: 2em;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999; 
 }
