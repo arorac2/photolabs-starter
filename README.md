@@ -22,3 +22,7 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+##
+
+<img width="1193" alt="image" src="https://github.com/arorac2/photolabs-starter/assets/88734236/c98c8a80-7e11-400d-aedc-500ee368a254">
