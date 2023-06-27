@@ -19,7 +19,7 @@ const TopNavigation = ({ favourites, notificationCount, fetchPhotosByTopic, topi
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <FavBadge count={favoriteCount} notificationCount={notificationCount} />
-      <TopicList topics={topics} handleTopicClick={handleTopicClick} />
+      {/* <TopicList topics={topics} handleTopicClick={handleTopicClick} /> */}
     </div>
   );
 };

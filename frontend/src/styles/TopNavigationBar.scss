@@ -25,16 +25,14 @@
   }
 }
 
+
 .top-nav-bar__topic-list {
   position: absolute;
   top: 0;
-  right: 0;
-  margin-right: 10em;
-  margin-top: 2em;
+  right: 36%;
+  margin-top: 2.5em;
   height: 60px;
   padding: 0 20px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   z-index: 999;
 }
