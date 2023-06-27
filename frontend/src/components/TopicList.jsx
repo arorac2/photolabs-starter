@@ -17,7 +17,7 @@ const TopicList = ({ topics, handleTopicClick }) => {
           id={topic.id}
           slug={topic.slug}
           label={topic.title}
-          onClick={() => handleTopicClick(topic.id)}
+          handleTopicClick ={handleTopicClick} 
         />
       ))}
     </div>

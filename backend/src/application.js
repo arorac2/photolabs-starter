@@ -28,20 +28,6 @@ function read(file) {
   });
 }
 
-app.get("/api/topics/photos/:topic_id", (req, res) => {
-  const { topic_id } = req.params;
-  // Fetch photos for the specific topic_id
-  db.query("SELECT * FROM photos WHERE topic_id = $1", [topic_id])
-    .then(result => {
-      res.json(result.rows);
-    })
-    .catch(error => {
-      console.log(`Error fetching photos for topic ${topic_id}: ${error}`);
-      res.status(500).json({ error: "An error occurred while fetching photos." });
-    });
-});
-
-
 module.exports = function application(
   ENV,
 ) {
@@ -69,8 +55,6 @@ module.exports = function application(
    return response.json();
     
   });
-
- 
 
 
   app.get("/api/topics/photos/:topic_id", (req, res) => {

@@ -19,13 +19,24 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_FAVORITE_PHOTOS":
-      return { ...state, favoritePhotos: action.payload, selectedPhoto: state.selectedPhoto ? {...state.selectedPhoto, isFavorite: action.payload.includes(state.selectedPhoto.id) } : null };
+      return {
+        ...state,
+        favoritePhotos: action.payload,
+        selectedPhoto: state.selectedPhoto
+          ? {
+              ...state.selectedPhoto,
+              isFavorite: action.payload.includes(state.selectedPhoto.id),
+            }
+          : null,
+      };
     case "INCREMENT_NOTIFICATION_COUNT":
       return { ...state, notificationCount: state.notificationCount + 1 };
     case "SET_SELECTED_PHOTO":
       return { ...state, selectedPhoto: action.payload };
     case "SET_SELECTED_TOPIC":
       return { ...state, selectedTopic: action.payload };
+    case "SET_PHOTOS_BY_TOPIC":
+      return { ...state, photos: action.payload };
     case "SET_PHOTOS":
       return { ...state, photos: action.payload };
     case "SET_TOPICS":
@@ -36,18 +47,22 @@ const reducer = (state, action) => {
   }
 };
 
-const fetchPhotosByTopic = (topicId) => {
-  return fetch(`/api/topics/photos/${topicId}`)
-    .then((response) => response.json())
-    .catch((error) => {
-      console.log(`Error fetching photos for topic ${topicId}: ${error}`);
-      return [];
-    });
-};
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const fetchPhotosByTopic = (topicId) => {
+    return fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("In useApp", data)
+        dispatch({ type: "SET_PHOTOS_BY_TOPIC", payload: data });
+      })
+      .catch((error) => {
+        console.log(`Error fetching photos for topic ${topicId}: ${error}`);
+        return [];
+      });
+  };
+  
   const closeModal = () => {
     dispatch({ type: "SET_SELECTED_PHOTO", payload: null });
   };

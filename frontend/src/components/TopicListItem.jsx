@@ -7,11 +7,18 @@ import '../styles/TopicListItem.scss'
 * used BY TopicList to display the list of topics
 */
 
-const TopicListItem = ({ label }) => {
+const TopicListItem = ({ label, handleTopicClick, id }) => {
+  const handleClick = (event) => {
+    event.preventDefault(); // Prevent form submission
+    console.log("ID IS: ",id)
+    handleTopicClick(id); // Invoke the onClick prop
+  };
+
   return (
-    <p className="topic-list__item">
+    <button className="topic-list__item" 
+    onClick={handleClick}>
       {label}
-    </p>
+    </button>
   )
 }
 

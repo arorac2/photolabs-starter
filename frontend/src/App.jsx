@@ -24,12 +24,18 @@ const App = () => {
     fetchPhotosByTopic
   } = useApplicationData(); 
   const [selectedTopic, setSelectedTopic] = useState(null);
+  
+  const handleTopicClick = (topicId) => {
+    setSelectedTopic(topicId);
+    fetchPhotosByTopic(topicId);
+  };
   return (
     <div className="App">
       <TopNavigationBar
         favoriteCount={favoritePhotos.length}
         favoritePhotos={favoritePhotos}
         notificationCount={notificationCount}
+        topics={topics}
       />
       <PhotoList
         photos={photos}
@@ -39,7 +45,7 @@ const App = () => {
         setNotificationCount={setNotificationCount}
         handlePhotoClick={handlePhotoClick}
       />
-      <TopicList topics={topics} />
+      <TopicList topics={topics} handleTopicClick={handleTopicClick} />
       {selectedPhoto && (
         <PhotoDetailsModal
           selectedPhoto={selectedPhoto}
@@ -51,6 +57,7 @@ const App = () => {
           setNotificationCount={setNotificationCount}
           handlePhotoClick={handlePhotoClick}
           photosData={photos}
+      
         />
       )}
     </div>
