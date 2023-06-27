@@ -9,7 +9,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 * It includes the photo image, favorite icon, and a list of similar photos.
 */
 
-export const PhotoDetailsModal = ({ closeModal, selectedPhoto, isFavorite, handleFavoriteClick, setFavoritePhotos, setNotificationCount, favoritePhotos, handlePhotoClick }) => {
+export const PhotoDetailsModal = ({ closeModal, selectedPhoto, handleFavoriteClick, setFavoritePhotos, setNotificationCount, favoritePhotos, handlePhotoClick }) => {
   return (
     <div className='photo-details-modal'>
       <button className='photo-details-modal--close-button' onClick={closeModal} >
@@ -27,13 +27,14 @@ export const PhotoDetailsModal = ({ closeModal, selectedPhoto, isFavorite, handl
       </button>
       {selectedPhoto && (
         <div className="photo-details-modal--content">
-          <div className='photolist-main'>
+          <div className='photolist-main' >
             <img src={selectedPhoto.imageSource} alt="Selected Photo" />
             <div
               className={`favorite-icon ${selectedPhoto.isFavorite ? 'active' : ''}`}
-              onClick={() => handleFavoriteClick(selectedPhoto.id)}
             >
-              <PhotoFavButton isFavorite={isFavorite} fill={isFavorite ? 'red' : 'transparent'} />
+              <PhotoFavButton isFavorite={selectedPhoto.isFavorite} fill={selectedPhoto.isFavorite ? 'red' : 'transparent'}
+                handleFavoriteClick={() => handleFavoriteClick(selectedPhoto.id)}
+              />
             </div>
           </div>
           <span className='tag'> Similar Photos</span>

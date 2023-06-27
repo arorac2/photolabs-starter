@@ -19,7 +19,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_FAVORITE_PHOTOS":
-      return { ...state, favoritePhotos: action.payload };
+      return { ...state, favoritePhotos: action.payload, selectedPhoto: state.selectedPhoto ? {...state.selectedPhoto, isFavorite: action.payload.includes(state.selectedPhoto.id) } : null };
     case "INCREMENT_NOTIFICATION_COUNT":
       return { ...state, notificationCount: state.notificationCount + 1 };
     case "SET_SELECTED_PHOTO":
