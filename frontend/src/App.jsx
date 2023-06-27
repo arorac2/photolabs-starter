@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 import useApplicationData from "./hooks/useApplicationData";
 import PhotoList from "./components/PhotoList";
 import TopNavigationBar from "./components/TopNavigationBar";
@@ -21,10 +22,8 @@ const App = () => {
     photos,
     topics,
     fetchPhotosByTopic
-  } = useApplicationData(); // Use the custom hook
-
+  } = useApplicationData(); 
   const [selectedTopic, setSelectedTopic] = useState(null);
-
   return (
     <div className="App">
       <TopNavigationBar
@@ -41,7 +40,6 @@ const App = () => {
         handlePhotoClick={handlePhotoClick}
       />
       <TopicList topics={topics} />
-
       {selectedPhoto && (
         <PhotoDetailsModal
           selectedPhoto={selectedPhoto}
@@ -53,8 +51,6 @@ const App = () => {
           setNotificationCount={setNotificationCount}
           handlePhotoClick={handlePhotoClick}
           photosData={photos}
-
-
         />
       )}
     </div>

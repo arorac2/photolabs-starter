@@ -2,25 +2,33 @@ import React from 'react';
 import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
+/* 
+* Props:  photos: an array of photo objects with included properties. 
+* favoritePhotos: an array of photoID's,
+* handlePhotoClick, handleFavoriteClick: handles favorited photos, and button click
+* Purpose: PhotoList takes a bunch of photoListItems and displays the accordingly.
+* Displays images, as well as image information and whether or not it has been favorited.
+*/
+
 const PhotoList = ({ photos, favoritePhotos, handlePhotoClick, handleFavoriteClick }) => {
   return (
     <ul className="photo-list">
-    {photos.map((photo) => (
-      <PhotoListItem
-        key={photo.id}
-        id={photo.id}
-        location={photo.location}
-        imageSource={photo.urls.regular}
-        username={photo.user.username}
-        profile={photo.user.profile}
-        isFavorite={favoritePhotos.includes(photo.id)}
-        handleFavoriteClick={handleFavoriteClick}
-        handlePhotoClick={handlePhotoClick}
-        topic={photo.topic_id}
-        similar_photos={photo.similar_photos}
-      />
-    ))}
-  </ul>)
+      {photos.map((photo) => (
+        <PhotoListItem
+          key={photo.id}
+          id={photo.id}
+          location={photo.location}
+          imageSource={photo.urls.regular}
+          username={photo.user.username}
+          profile={photo.user.profile}
+          isFavorite={favoritePhotos.includes(photo.id)}
+          handleFavoriteClick={handleFavoriteClick}
+          handlePhotoClick={handlePhotoClick}
+          topic={photo.topic_id}
+          similar_photos={photo.similar_photos}
+        />
+      ))}
+    </ul>)
 }
 
 PhotoList.defaultProps = {
@@ -77,8 +85,8 @@ PhotoList.defaultProps = {
         "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
       }
     }
-   ]
-   
+  ]
+
 }
 
 export default PhotoList

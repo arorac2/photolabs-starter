@@ -1,6 +1,8 @@
 import { useState, useReducer } from "react";
 
+/* Purpose of hook: Manages the application state using the useReducer */
 
+/* Defines the initialState of the application  */
 const initialState = {
   favoritePhotos: [],
   notificationCount: 0,
@@ -10,6 +12,10 @@ const initialState = {
   topics: [],
 };
 
+/*
+ * Handles state updates based on actions, uses switch statements to handle different
+ * actions and update relavent state properties
+ */
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_FAVORITE_PHOTOS":
@@ -20,11 +26,11 @@ const reducer = (state, action) => {
       return { ...state, selectedPhoto: action.payload };
     case "SET_SELECTED_TOPIC":
       return { ...state, selectedTopic: action.payload };
-      case "SET_PHOTOS":
-        return { ...state, photos: action.payload };
-      case "SET_TOPICS":
-        return { ...state, topics: action.payload };
-      
+    case "SET_PHOTOS":
+      return { ...state, photos: action.payload };
+    case "SET_TOPICS":
+      return { ...state, topics: action.payload };
+
     default:
       return state;
   }
@@ -32,8 +38,8 @@ const reducer = (state, action) => {
 
 const fetchPhotosByTopic = (topicId) => {
   return fetch(`/api/topics/photos/${topicId}`)
-    .then(response => response.json())
-    .catch(error => {
+    .then((response) => response.json())
+    .catch((error) => {
       console.log(`Error fetching photos for topic ${topicId}: ${error}`);
       return [];
     });
@@ -64,25 +70,24 @@ const useApplicationData = () => {
     }
   };
 
-
   useState(() => {
-    // Fetch photos data
+    /*Fetch photos data*/
     fetch("http://localhost:8001/api/photos")
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         dispatch({ type: "SET_PHOTOS", payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("Error fetching photos data:", error);
       });
 
-    // Fetch topics data
+    /*Fetch topics data*/
     fetch("http://localhost:8001/api/topics")
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         dispatch({ type: "SET_TOPICS", payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("Error fetching topics data:", error);
       });
   }, []);
@@ -92,7 +97,7 @@ const useApplicationData = () => {
     closeModal,
     handlePhotoClick,
     handleFavoriteClick,
-    fetchPhotosByTopic
+    fetchPhotosByTopic,
   };
 };
 

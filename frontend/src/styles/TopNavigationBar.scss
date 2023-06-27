@@ -1,3 +1,4 @@
+/* Design for topNavBar */
 
 .top-nav-bar {
   display: flex;
@@ -19,16 +20,15 @@
   text-underline-position: auto;
   margin-left: 24px;
 
-  .FavBadge{
+  .FavBadge {
     margin-right: 1em;
   }
 }
 
-
-.top-nav-bar__topic-list{
+.top-nav-bar__topic-list {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   margin-right: 10em;
   margin-top: 2em;
   height: 60px;
@@ -36,5 +36,5 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 999; 
+  z-index: 999;
 }

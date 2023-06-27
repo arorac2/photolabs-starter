@@ -1,13 +1,16 @@
 import React from 'react';
 import PhotoList from '../components/PhotoList';
 import '../styles/PhotoDetailsModal.scss'
-import FavIcon from '../components/FavIcon';
 import PhotoFavButton from '../components/PhotoFavButton';
+
+/*
+* Props: closeModal, selectedPhoto, isFavorite, handleFavoriteClick, setFavoritePhotos, setNotificationCount, favoritePhotos, handlePhotoClick
+* Purpose: Represents a modal that displays detailed information about a selected photo.
+* It includes the photo image, favorite icon, and a list of similar photos.
+*/
 
 export const PhotoDetailsModal = ({ closeModal, selectedPhoto, isFavorite, handleFavoriteClick, setFavoritePhotos, setNotificationCount, favoritePhotos, handlePhotoClick }) => {
   return (
-
-
     <div className='photo-details-modal'>
       <button className='photo-details-modal--close-button' onClick={closeModal} >
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,14 +32,12 @@ export const PhotoDetailsModal = ({ closeModal, selectedPhoto, isFavorite, handl
             <div
               className={`favorite-icon ${selectedPhoto.isFavorite ? 'active' : ''}`}
               onClick={() => handleFavoriteClick(selectedPhoto.id)}
-
             >
               <PhotoFavButton isFavorite={isFavorite} fill={isFavorite ? 'red' : 'transparent'} />
             </div>
           </div>
           <span className='tag'> Similar Photos</span>
           <div className='photolist-similar'>
-
             <PhotoList photos={selectedPhoto.similar_photos}
               setFavoritePhotos={setFavoritePhotos}
               handleFavoriteClick={handleFavoriteClick}

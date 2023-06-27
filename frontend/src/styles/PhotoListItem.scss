@@ -1,11 +1,11 @@
+/* Design for photoListItem */
 
-.photo-list-item .profile{
-  width: 70px; 
-  height: 60px; 
+.photo-list-item .profile {
+  width: 70px;
+  height: 60px;
   border-radius: 50%;
   overflow: hidden;
   margin-top: 1em;
-
 }
 
 .photo-list-item {
@@ -13,19 +13,17 @@
   width: 400px;
   margin-right: 10px;
   border: 2px solid lightgray;
-  padding:20px;
+  padding: 20px;
   border-radius: 10px;
   margin-bottom: 25px;
   margin-top: 25px;
-  
+
   img {
-   
     justify-content: space-between;
     display: flex;
     width: 100%;
     height: 300px;
     object-fit: cover;
-
   }
 
   h2 {
@@ -37,18 +35,16 @@
     margin: 5px 0;
   }
 
-
   .favorite-icon {
     width: 20px;
-    height: 20px;;
+    height: 20px;
     border-radius: 50%;
     position: relative;
     cursor: pointer;
- 
   }
 
   .favorite-icon::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -63,22 +59,19 @@
     background-color: red;
     border-color: red;
   }
-  
+
   .favorite-icon:hover::before,
   .favorite-icon:hover::after {
     background-color: red;
     border-color: red;
   }
-  
 }
-
 
 .photo-list__image {
   user-select: none;
   width: 300px;
   height: 200px;
   object-fit: cover;
-  
 }
 
 .photo-list__image {
@@ -120,4 +113,3 @@
   border-radius: 50%;
   object-fit: cover;
 }
-

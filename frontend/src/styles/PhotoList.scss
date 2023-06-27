@@ -1,11 +1,11 @@
+/* Design for photoList */
+
 .photo-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
- 
-
 }
 
 .photo-list:after {
@@ -15,5 +15,5 @@
 }
 
 .photo-list__fav-icon-svg {
-  position: absolute; //put on the container
+  position: absolute; 
 }
