@@ -1,5 +1,6 @@
 # react-photolabs
 The PhotoLabs project for the Web Development React course programming.
+- Within this project you are able to add photos to your favorites. Select an image and watch it appear in a modal alongside pictures similar to the selected photos, and filter through the topics in the navigation bar. 
 
 # Photolabs
 
@@ -25,4 +26,6 @@ npm start
 
 ##
 
-<img width="1193" alt="image" src="https://github.com/arorac2/photolabs-starter/assets/88734236/c98c8a80-7e11-400d-aedc-500ee368a254">
+<img width="1219" alt="image" src="https://github.com/arorac2/photolabs-starter/assets/88734236/01e17953-07b3-48f5-b1b3-436d4f7473d9">
+<img width="1226" alt="image" src="https://github.com/arorac2/photolabs-starter/assets/88734236/d4777e67-42b6-4cc2-a7fa-913698854610">
+
