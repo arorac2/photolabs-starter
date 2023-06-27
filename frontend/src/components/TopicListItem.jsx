@@ -15,10 +15,10 @@ const TopicListItem = ({ label, handleTopicClick, id }) => {
   };
 
   return (
-    <button className="topic-list__item" 
+    <p className="topic-list__item" 
     onClick={handleClick}>
       {label}
-    </button>
+    </p>
   )
 }
 
